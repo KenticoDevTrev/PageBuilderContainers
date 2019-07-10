@@ -12,7 +12,7 @@
     <description>$description$</description>
     <releaseNotes>Initial Commit</releaseNotes>
     <copyright>Copyright 2019</copyright>
-    <tags>Kentico MVC PageBuilder</tags>
+    <tags>Kentico MVC Page Builder Containers</tags>
   </metadata>
   <files>
 	<file src="Views\Shared\FormComponents\_PageBuilderContainerSelectorComponent.cshtml" target = "Views\Shared\FormComponents" />

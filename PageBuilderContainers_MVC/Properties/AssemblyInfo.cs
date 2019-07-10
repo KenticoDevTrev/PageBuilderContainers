@@ -7,7 +7,7 @@ using CMS;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Kentico PageBuilderContainers MVC")]
-[assembly: AssemblyDescription("Allows you to leverage the PageBuilderContainers module to add containers to your page builder widgets.  Must install Kentico.PageBuilderContainers on Mother")]
+[assembly: AssemblyDescription("Add Widget Containers functionality to MVC Page Builder.  This package is for the MVC Application.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Heartland Business Systems")]
 [assembly: AssemblyProduct("PageBuilderContainers_MVC")]
@@ -33,5 +33,5 @@ using CMS;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("12.0.0.0")]
+[assembly: AssemblyFileVersion("12.0.0.0")]

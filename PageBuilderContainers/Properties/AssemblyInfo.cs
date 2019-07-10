@@ -6,9 +6,9 @@ using CMS;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PageBuilderContainers")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Page Builder Container module for Kentico 12")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Heartland Business Systems")]
 [assembly: AssemblyProduct("PageBuilderContainers")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

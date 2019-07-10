@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PageBuilderContainers</RootNamespace>
-    <AssemblyName>PageBuilderContainers</AssemblyName>
+    <AssemblyName>Kentico.PageBuilderContainers</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,23 +32,50 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CMS.Base">
-      <HintPath>..\Lib\CMS.Base.dll</HintPath>
+    <Reference Include="CMS.Base, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12\Lib\CMS.Base.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="CMS.Core">
-      <HintPath>..\Lib\CMS.Core.dll</HintPath>
+    <Reference Include="CMS.Core, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12\Lib\CMS.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="CMS.DataEngine">
-      <HintPath>..\Lib\CMS.DataEngine.dll</HintPath>
+    <Reference Include="CMS.DataEngine, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12\Lib\CMS.DataEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="CMS.Helpers">
-      <HintPath>..\Lib\CMS.Helpers.dll</HintPath>
+    <Reference Include="CMS.Helpers, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12\Lib\CMS.Helpers.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="CMS.SiteProvider">
-      <HintPath>..\Lib\CMS.SiteProvider.dll</HintPath>
+    <Reference Include="CMS.IO, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12\Lib\CMS.IO.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CMS.Modules, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12\Lib\CMS.Modules.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CMS.SiteProvider, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12\Lib\CMS.SiteProvider.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Kentico12\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Kentico12\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,11 +88,15 @@
     <Compile Include="Classes\PageBuilderContainerSiteInfo.cs" />
     <Compile Include="Classes\PageBuilderContainerSiteInfoProvider.cs" />
     <Compile Include="Classes\PageBuliderContainerInfoProvider.cs" />
+    <Compile Include="Other\PageBuilderContianersInitializationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\PageBuilderContainers\" />
     <Folder Include="UI\PageBuilderContainers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
