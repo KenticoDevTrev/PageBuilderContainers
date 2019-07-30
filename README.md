@@ -29,3 +29,13 @@ This package is for Kentico 12 SP, to be installed on the MVC web application an
 
 ## Add Widget and configure Container
 1. Add your widget to a Page Builder Area in Kentico, you will see the Containers Name, Title, CSS Class, and Custom Content properties in the Widget's configuration dialog (cogwheel icon)
+
+# Contributions, but fixes and License
+Feel free to Fork and submit pull requests to contribute.
+
+You can submit bugs through the issue list and i will get to them as soon as i can, unless you want to fix it yourself and submit a pull request!
+
+This is free to use and modify!
+
+# Compatability
+Can be used on any Kentico 12 SP site (hotfix 29 or above).
