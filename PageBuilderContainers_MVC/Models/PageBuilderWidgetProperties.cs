@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PageBuilderContainers
 {
-    public class PageBuilderWidgetProperties : IWidgetProperties
+    public class PageBuilderWidgetProperties : IPageBuilderContainerProperties, IWidgetProperties
     {
         [EditingComponent(PageBuilderContainerSelectorComponent.IDENTIFIER, Order = 990, Label = "Container Name")]
         public string ContainerName { get; set; }

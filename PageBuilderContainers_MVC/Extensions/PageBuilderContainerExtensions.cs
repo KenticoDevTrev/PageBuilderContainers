@@ -13,9 +13,9 @@ public static class PageBuilderContainerExtensions
 {
     public static MvcHtmlString PageBuilderContainerBefore(this HtmlHelper helper, object WidgetModel)
     {
-        if (WidgetModel is PageBuilderWidgetProperties)
+        if (WidgetModel is IPageBuilderContainerProperties)
         {
-            PageBuilderWidgetProperties ContainerProps = (PageBuilderWidgetProperties)WidgetModel;
+            IPageBuilderContainerProperties ContainerProps = (IPageBuilderContainerProperties)WidgetModel;
             if (!string.IsNullOrWhiteSpace(ContainerProps.ContainerName))
             {
                 var Container = GetPageBuilderContainer(ContainerProps.ContainerName);
@@ -35,9 +35,9 @@ public static class PageBuilderContainerExtensions
 
     public static MvcHtmlString PageBuilderContainerAfter(this HtmlHelper helper, object WidgetModel)
     {
-        if (WidgetModel is PageBuilderWidgetProperties)
+        if (WidgetModel is IPageBuilderContainerProperties)
         {
-            PageBuilderWidgetProperties ContainerProps = (PageBuilderWidgetProperties)WidgetModel;
+            IPageBuilderContainerProperties ContainerProps = (IPageBuilderContainerProperties)WidgetModel;
             if (!string.IsNullOrWhiteSpace(ContainerProps.ContainerName))
             {
                 var Container = GetPageBuilderContainer(ContainerProps.ContainerName);

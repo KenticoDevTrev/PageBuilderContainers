@@ -532,6 +532,7 @@
     <Compile Include="Classes\PageBuilderContainerSiteInfoProvider.cs" />
     <Compile Include="Classes\PageBuliderContainerInfoProvider.cs" />
     <Compile Include="FormComponents\PageBuilderContainerSelectorComponent.cs" />
+    <Compile Include="Models\IPageBuilderContainerProperties.cs" />
     <Compile Include="Models\PageBuilderWidgetProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
