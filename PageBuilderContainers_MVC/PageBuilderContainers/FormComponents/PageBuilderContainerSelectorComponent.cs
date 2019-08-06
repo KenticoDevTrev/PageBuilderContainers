@@ -10,6 +10,7 @@ using CMS;
 using CMS.SiteProvider;
 using CMS.Helpers;
 using PageBuilderContainers;
+using CMS.EventLog;
 
 [assembly: RegisterFormComponent(PageBuilderContainerSelectorComponent.IDENTIFIER, typeof(PageBuilderContainerSelectorComponent), "Drop-down with custom data", IconClass = "icon-menu")]
 namespace PageBuilderContainers
@@ -31,23 +32,31 @@ namespace PageBuilderContainers
                 {
                     cs.CacheDependency = CacheHelper.GetCacheDependency(new string[] { "cms.pagebuildercontainer|all", "cms.pagebuildercontainersite|all" });
                 }
-                var Containers = PageBuilderContainerInfoProvider.GetPageBuilderContainers()
-                .WhereIn("PageBuilderContainerID",
-                PageBuilderContainerSiteInfoProvider.GetPageBuilderContainerSites().WhereEquals("SiteID", SiteContext.CurrentSiteID).Select(x => x.PageBuilderContainerID).ToArray())
-                .OrderBy("ContainerDisplayName")
-                .Select(x =>
-                    new SelectListItem()
+                try { 
+                    var Containers = PageBuilderContainerInfoProvider.GetPageBuilderContainers()
+                    .WhereIn("PageBuilderContainerID",
+                    PageBuilderContainerSiteInfoProvider.GetPageBuilderContainerSites().WhereEquals("SiteID", SiteContext.CurrentSiteID).Select(x => x.PageBuilderContainerID).ToArray())
+                    .OrderBy("ContainerDisplayName")
+                    .Select(x =>
+                        new SelectListItem()
+                        {
+                            Value = x.ContainerName,
+                            Text = x.ContainerDisplayName
+                        }
+                    ).ToList();
+                    Containers.Insert(0, new SelectListItem()
                     {
-                        Value = x.ContainerName,
-                        Text = x.ContainerDisplayName
-                    }
-                ).ToList();
-                Containers.Insert(0, new SelectListItem()
+                        Value = "",
+                        Text = "(No Container)"
+                    });
+                    return Containers;
+                } catch(Exception ex)
                 {
-                    Value = "",
-                    Text = "(No Container)"
-                });
-                return Containers;
+                    // Module not installed
+                    EventLogProvider.LogWarning("PageBuilderContainer", "PageBuilderContainer Module Missing", ex, SiteContext.CurrentSite != null ? SiteContext.CurrentSite.SiteID : 0, additionalMessage: "Could not get Page Builder Containers, make sure you have installed the PageBuilderContainers.Kentico nuget package on your admin kentico instance.");
+                    return new List<SelectListItem>() { new SelectListItem() { Value = "", Text = "(No Container)" } };
+                }
+                
             }, new CacheSettings(1440, "GetContainerSelectors", SiteContext.CurrentSiteID));
         }
     }

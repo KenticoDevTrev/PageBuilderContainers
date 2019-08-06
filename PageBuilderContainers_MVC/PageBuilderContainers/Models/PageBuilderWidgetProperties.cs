@@ -20,7 +20,15 @@ namespace PageBuilderContainers
         public string ContainerCSSClass { get; set; }
 
         [EditingComponent(TextAreaComponent.IDENTIFIER, Order = 993, Label = "Container Custom Content", Tooltip = "Container must have {% ContainerCustomContent %}")]
-
         public string ContainerCustomContent { get; set; }
+    }
+
+    public class PageBuilderWithHtmlBeforeAfterWidgetProperties : PageBuilderWidgetProperties, IWidgetProperties
+    {
+        [EditingComponent(TextAreaComponent.IDENTIFIER, Order = 994, Label = "HTML Before")]
+        public string HtmlBefore { get; set; }
+
+        [EditingComponent(TextAreaComponent.IDENTIFIER, Order = 995, Label = "HTML After")]
+        public string HtmlAfter { get; set; }
     }
 }

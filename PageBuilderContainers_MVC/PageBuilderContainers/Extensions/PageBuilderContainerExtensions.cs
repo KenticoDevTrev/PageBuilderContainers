@@ -13,45 +13,65 @@ public static class PageBuilderContainerExtensions
 {
     public static MvcHtmlString PageBuilderContainerBefore(this HtmlHelper helper, object WidgetModel)
     {
+        string Html = "";
+        string HtmlBefore = "";
         if (WidgetModel is PageBuilderWidgetProperties)
         {
+            if (WidgetModel is PageBuilderWithHtmlBeforeAfterWidgetProperties)
+            {
+                HtmlBefore = ((PageBuilderWithHtmlBeforeAfterWidgetProperties)WidgetModel).HtmlBefore;
+            }
+
             PageBuilderWidgetProperties ContainerProps = (PageBuilderWidgetProperties)WidgetModel;
             if (!string.IsNullOrWhiteSpace(ContainerProps.ContainerName))
             {
                 var Container = GetPageBuilderContainer(ContainerProps.ContainerName);
+                MacroResolver Resolver = MacroResolver.GetInstance();
                 if (Container != null)
                 {
-                    MacroResolver Resolver = MacroResolver.GetInstance();
                     Resolver.SetNamedSourceData("ContainerTitle", ContainerProps.ContainerTitle);
                     Resolver.SetNamedSourceData("ContainerCustomContent", ContainerProps.ContainerCustomContent);
                     Resolver.SetNamedSourceData("ContainerCSSClass", ContainerProps.ContainerCSSClass);
                     string StyleContent = (!string.IsNullOrWhiteSpace(Container.ContainerCSS) ? string.Format("<style>{0}</style>", Container.ContainerCSS) : "");
-                    return new MvcHtmlString(StyleContent+Resolver.ResolveMacros(Container.ContainerTextBefore, new EvaluationContext(Resolver, Container.ContainerTextBefore)));
+                    Html = StyleContent + Resolver.ResolveMacros(HtmlBefore+Container.ContainerTextBefore, new EvaluationContext(Resolver, HtmlBefore + Container.ContainerTextBefore));
+                } else
+                {
+                    Html = Resolver.ResolveMacros(HtmlBefore, new EvaluationContext(Resolver, HtmlBefore));
                 }
             }
         }
-        return new MvcHtmlString("");
+        return new MvcHtmlString(Html);
     }
 
     public static MvcHtmlString PageBuilderContainerAfter(this HtmlHelper helper, object WidgetModel)
     {
+        string Html = "";
+        string HtmlAfter = "";
         if (WidgetModel is PageBuilderWidgetProperties)
         {
+            if (WidgetModel is PageBuilderWithHtmlBeforeAfterWidgetProperties)
+            {
+                HtmlAfter = ((PageBuilderWithHtmlBeforeAfterWidgetProperties)WidgetModel).HtmlAfter;
+            }
+
             PageBuilderWidgetProperties ContainerProps = (PageBuilderWidgetProperties)WidgetModel;
             if (!string.IsNullOrWhiteSpace(ContainerProps.ContainerName))
             {
                 var Container = GetPageBuilderContainer(ContainerProps.ContainerName);
+                MacroResolver Resolver = MacroResolver.GetInstance();
                 if (Container != null)
                 {
-                    MacroResolver Resolver = MacroResolver.GetInstance();
                     Resolver.SetNamedSourceData("ContainerTitle", ContainerProps.ContainerTitle);
                     Resolver.SetNamedSourceData("ContainerCustomContent", ContainerProps.ContainerCustomContent);
                     Resolver.SetNamedSourceData("ContainerCSSClass", ContainerProps.ContainerCSSClass);
-                    return new MvcHtmlString(Resolver.ResolveMacros(Container.ContainerTextAfter, new EvaluationContext(Resolver, Container.ContainerTextAfter)));
+                    Html = Resolver.ResolveMacros(Container.ContainerTextAfter+HtmlAfter, new EvaluationContext(Resolver, Container.ContainerTextAfter + HtmlAfter));
+                } else
+                {
+                    Html = Resolver.ResolveMacros(HtmlAfter, new EvaluationContext(Resolver, HtmlAfter));
                 }
             }
         }
-        return new MvcHtmlString("");
+        return new MvcHtmlString(Html);
     }
 
     private static PageBuilderContainerInfo GetPageBuilderContainer(string Name)
