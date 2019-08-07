@@ -572,12 +572,6 @@
   <ItemGroup>
     <Folder Include="obj\Debug\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PageBuilderContainers\PageBuilderContainers.csproj">
-      <Project>{60d45549-bb62-4999-8f29-987b58b33127}</Project>
-      <Name>PageBuilderContainers</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
