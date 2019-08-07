@@ -1,7 +1,3 @@
-Restores Kentico "Webpart Containers" to MVC Page Builder Widgets.
-
-This package is for Kentico 12 SP, to be installed on the MVC web application and not the Kentico Application ("Mother").
-
 # Installation
 ## Part 1 - Kentico Application ("Mother"):
 
@@ -17,7 +13,7 @@ This package is for Kentico 12 SP, to be installed on the MVC web application an
 1. Install the `PageBuilderContainers.Kentico.MVC` NuGet package on your MVC Site and rebuild
 
 ## Part 3 - Add to Widgets
-1. Have your Widget Properties Model class inherit from `PageBuilderContainers.PageBuilderWidgetProperties`
+1. Have your Widget Properties Model class implement `IPageBuilderContainerProperties`, `IHtmlBeforeAfterContainerProperties` or both.  You can also inherit from the base classes of `PageBuilderContainers.PageBuilderWidgetProperties` or `PageBuilderContainers.PageBuilderWithHtmlBeforeAfterWidgetProperties` if you wish. 
 1. In your Widget's View, add `@Html.PageBuilderContainerBefore(Model)` at the beginning of your rendering, and `@Html.PageBuilderContainerAfter(Model)` at the end
 - Note: "Model" must be the Widget Property Class object, if using a model of `ComponentViewModel<YourWidgetModelClass>`, then your property may be `Model.Properties` instead of `Model`
 
@@ -29,13 +25,3 @@ This package is for Kentico 12 SP, to be installed on the MVC web application an
 
 ## Add Widget and configure Container
 1. Add your widget to a Page Builder Area in Kentico, you will see the Containers Name, Title, CSS Class, and Custom Content properties in the Widget's configuration dialog (cogwheel icon)
-
-# Contributions, but fixes and License
-Feel free to Fork and submit pull requests to contribute.
-
-You can submit bugs through the issue list and i will get to them as soon as i can, unless you want to fix it yourself and submit a pull request!
-
-This is free to use and modify!
-
-# Compatability
-Can be used on any Kentico 12 SP site (hotfix 29 or above).
