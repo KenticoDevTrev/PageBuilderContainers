@@ -6,7 +6,7 @@ namespace PageBuilderContainers
     /// <summary>
     /// Base instance of the IHtmlBeforeAfterContainerProperties, you can have your widget model inherit this instead of implementing yourself.
     /// </summary>
-    public class HtmlBeforeAfterContainerProperties : IHtmlBeforeAfterContainerProperties, IWidgetProperties
+    public class HtmlBeforeAfterWidgetProperties : IHtmlBeforeAfterContainerProperties, IWidgetProperties
     {
 
         [EditingComponent(TextAreaComponent.IDENTIFIER, Order = 994, Label = "HTML Before")]

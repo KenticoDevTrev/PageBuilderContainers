@@ -537,8 +537,11 @@
     <Compile Include="FormComponents\PageBuilderContainerSelectorComponent.cs" />
     <Compile Include="Interfaces\IHtmlBeforeAfterContainerProperties.cs" />
     <Compile Include="Interfaces\IPageBuilderContainerProperties.cs" />
-    <Compile Include="Models\HtmlBeforeAfterContainerProperties.cs" />
+    <Compile Include="Models\HtmlBeforeAfterSectionProperties.cs" />
+    <Compile Include="Models\HtmlBeforeAfterWidgetProperties.cs" />
+    <Compile Include="Models\PageBuilderSectionProperties.cs" />
     <Compile Include="Models\PageBuilderWidgetProperties.cs" />
+    <Compile Include="Models\PageBuilderWithHtmlBeforeAfterSectionProperties.cs" />
     <Compile Include="Models\PageBuilderWithHtmlBeforeAfterWidgetProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

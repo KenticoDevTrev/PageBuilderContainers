@@ -21,14 +21,17 @@ public static class PageBuilderContainerExtensions
     {
         string HtmlContainer = "";
         string HtmlWrapper = "";
-        if(ComponentModel is IHtmlBeforeAfterContainerProperties HtmlBeforeAfterProps)
+        if (ComponentModel is IHtmlBeforeAfterContainerProperties HtmlBeforeAfterProps)
         {
-            HtmlWrapper = HtmlBeforeAfterProps.HtmlBefore;
-            // Apply macro engine if needed
-            if(HtmlWrapper.IndexOf("{") > -1)
+            if (!string.IsNullOrWhiteSpace(HtmlBeforeAfterProps.HtmlBefore))
             {
-                MacroResolver Resolver = MacroResolver.GetInstance();
-                HtmlWrapper = Resolver.ResolveMacros(HtmlWrapper, new EvaluationContext(Resolver, HtmlWrapper));
+                HtmlWrapper = HtmlBeforeAfterProps.HtmlBefore;
+                // Apply macro engine if needed
+                if (HtmlWrapper.IndexOf("{") > -1)
+                {
+                    MacroResolver Resolver = MacroResolver.GetInstance();
+                    HtmlWrapper = Resolver.ResolveMacros(HtmlWrapper, new EvaluationContext(Resolver, HtmlWrapper));
+                }
             }
         }
         if (ComponentModel is IPageBuilderContainerProperties ContainerProps)
@@ -47,7 +50,7 @@ public static class PageBuilderContainerExtensions
                 }
             }
         }
-        return new MvcHtmlString(HtmlWrapper+ HtmlContainer);
+        return new MvcHtmlString(HtmlWrapper + HtmlContainer);
     }
 
     /// <summary>
@@ -62,12 +65,15 @@ public static class PageBuilderContainerExtensions
         string HtmlWrapper = "";
         if (ComponentModel is IHtmlBeforeAfterContainerProperties HtmlBeforeAfterProps)
         {
-            HtmlWrapper = HtmlBeforeAfterProps.HtmlAfter;
-            // Apply macro engine if needed
-            if (HtmlWrapper.IndexOf("{") > -1)
+            if (!string.IsNullOrWhiteSpace(HtmlBeforeAfterProps.HtmlAfter))
             {
-                MacroResolver Resolver = MacroResolver.GetInstance();
-                HtmlWrapper = Resolver.ResolveMacros(HtmlWrapper, new EvaluationContext(Resolver, HtmlWrapper));
+                HtmlWrapper = HtmlBeforeAfterProps.HtmlAfter;
+                // Apply macro engine if needed
+                if (HtmlWrapper.IndexOf("{") > -1)
+                {
+                    MacroResolver Resolver = MacroResolver.GetInstance();
+                    HtmlWrapper = Resolver.ResolveMacros(HtmlWrapper, new EvaluationContext(Resolver, HtmlWrapper));
+                }
             }
         }
         if (ComponentModel is IPageBuilderContainerProperties ContainerProps)
@@ -86,7 +92,7 @@ public static class PageBuilderContainerExtensions
                 }
             }
         }
-        return new MvcHtmlString(HtmlContainer+ HtmlWrapper);
+        return new MvcHtmlString(HtmlContainer + HtmlWrapper);
     }
 
     /// <summary>
