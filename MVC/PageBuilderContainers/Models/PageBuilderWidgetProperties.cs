@@ -1,13 +1,11 @@
 ﻿using Kentico.Forms.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PageBuilderContainers
 {
+    /// <summary>
+    /// Base instance of the IPageBuilderContainerProperties, you can have your widget model inherit this instead of implementing yourself.
+    /// </summary>
     public class PageBuilderWidgetProperties : IPageBuilderContainerProperties, IWidgetProperties
     {
         [EditingComponent(PageBuilderContainerSelectorComponent.IDENTIFIER, Order = 990, Label = "Container Name")]
@@ -23,12 +21,5 @@ namespace PageBuilderContainers
         public string ContainerCustomContent { get; set; }
     }
 
-    public class PageBuilderWithHtmlBeforeAfterWidgetProperties : PageBuilderWidgetProperties, IWidgetProperties
-    {
-        [EditingComponent(TextAreaComponent.IDENTIFIER, Order = 994, Label = "HTML Before")]
-        public string HtmlBefore { get; set; }
-
-        [EditingComponent(TextAreaComponent.IDENTIFIER, Order = 995, Label = "HTML After")]
-        public string HtmlAfter { get; set; }
-    }
+    
 }

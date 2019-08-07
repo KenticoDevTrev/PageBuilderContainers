@@ -535,8 +535,11 @@
     <Compile Include="Classes\PageBuliderContainerInfoProvider.cs" />
     <Compile Include="Extensions\PageBuilderContainerExtensions.cs" />
     <Compile Include="FormComponents\PageBuilderContainerSelectorComponent.cs" />
-    <Compile Include="Models\IPageBuilderContainerProperties.cs" />
+    <Compile Include="Interfaces\IHtmlBeforeAfterContainerProperties.cs" />
+    <Compile Include="Interfaces\IPageBuilderContainerProperties.cs" />
+    <Compile Include="Models\HtmlBeforeAfterContainerProperties.cs" />
     <Compile Include="Models\PageBuilderWidgetProperties.cs" />
+    <Compile Include="Models\PageBuilderWithHtmlBeforeAfterWidgetProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -545,9 +548,6 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.1.9.0\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SampleResource\SampleIncludedFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
