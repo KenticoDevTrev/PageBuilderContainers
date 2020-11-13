@@ -9,9 +9,21 @@
 1. Search and edit `Page Builder Containers`
 1. Go to `Sites` and add to your site.
 
+<<<<<<< HEAD
 ## Part 2 - Install on MVC Site
 
 ### For MVC.Net Framework
+=======
+### Note for WebSite vs. WebApp
+If you are upgrading from a previous version of Kentico and your Admin is a WebSite vs. WebApp, you will need to change the following files's top Control tag attribute from "CodeBehind" to "CodeFile" in order for it to work
+
+* CMSModules/PageBuilderContainers/Controls/PageBuilderContainers/General.ascx
+* CMSModules/PageBuilderContainers/Controls/PageBuilderContainers/PageBuilderContainerCode.ascx
+* CMSModules/PageBuilderContainers/UI/PageBuilderContainers/Container_Edit_General.aspx
+* CMSModules/PageBuilderContainers/UI/PageBuilderContainers/Container_Edit_New.aspx
+
+## Part 2 - MVC Site
+>>>>>>> 2f48b707d58338ac7f2ebb0a8dd093ce155bcebf
 
 1. Install the `PageBuilderContainers.Kentico.MVC` NuGet package on your MVC Site and rebuild
 
