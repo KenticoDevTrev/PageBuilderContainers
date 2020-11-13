@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>13.0.1</Version>
+    <Description>Base Pagebuilder classes for Kentico Xperience 13.  This is referenced by both PageBuilderContainers.Kentico and PageBuilderContainers.Kentico.MVC / Core</Description>
+    <Authors>Trevor Fayas</Authors>
+    <Company>Heartland Business Systems</Company>
+    <Product />
+    <PackageIcon>favicon-96x96.png</PackageIcon>
+    <RepositoryUrl>https://github.com/KenticoDevTrev/PageBuilderContainers</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/KenticoDevTrev/PageBuilderContainers</PackageProjectUrl>
+    <PackageReleaseNotes>Forgot to add assembly file</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kentico.Xperience.Libraries" Version="13.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\tfayas\Desktop\favicon-96x96.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

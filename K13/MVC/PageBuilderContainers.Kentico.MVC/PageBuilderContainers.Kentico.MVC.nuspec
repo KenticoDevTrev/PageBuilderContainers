@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>PageBuilderContainers.Kentico.MVC</id>
+		<version>13.0.0</version>
+		<title>Page Builder Container Xperience MVC</title>
+		<authors>Heartland Business Systems</authors>
+		<owners>Trevor Fayas</owners>
+		<projectUrl>https://github.com/KenticoDevTrev/PageBuilderContainers</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/Kentico/devnet.kentico.com/master/marketplace/assets/generic-integration.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Page Builder Container for Kentico Xperience 13 MVC (Full framework, not core).</description>
+		<releaseNotes>Upgraded to Xperience 13.</releaseNotes>
+		<copyright>Copyright 2020 Heartland Business Systems</copyright>
+		<tags>Page Builder Container Framework Kentico</tags>
+		<dependencies>
+			<dependency id="PageBuilderContainers.Kentico.Base" version="13.0.0" />
+			<dependency id="PageBuilderContainers.Kentico.MVC.Base" version="13.0.0" />
+		</dependencies>
+	</metadata>
+	<files>
+        	<file src="Views\Shared\FormComponents\_PageBuilderContainerSelectorComponent.cshtml" target="content\Views\Shared\FormComponents\_PageBuilderContainerSelectorComponent.cshtml" />
+    	</files>
+</package>

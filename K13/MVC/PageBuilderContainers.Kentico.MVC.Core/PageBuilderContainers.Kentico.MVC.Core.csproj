@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageIcon>favicon-96x96.png</PackageIcon>
+    <Version>13.0.1</Version>
+    <Authors>Trevor Fayas</Authors>
+    <Company>Heartland Business Systems</Company>
+    <Product>Page Builder Container</Product>
+    <Description>This is the Page builder Container Kentico Xperience 13 MVC.Net Core.   You must install PageBuilderContainers.Kentico on the admin/mother application along with this.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/KenticoDevTrev/PageBuilderContainers</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/KenticoDevTrev/PageBuilderContainers</RepositoryUrl>
+    <PackageTags>Containers, Kentico, Xperience</PackageTags>
+    <PackageReleaseNotes>Added View package for the container selector form component</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
+    <PackageReference Include="PageBuilderContainers.Kentico.MVC.Base" Version="13.0.1" />
+    <PackageReference Include="PageBuilderContainers.Kentico.MVC.Core.Views" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\tfayas\Desktop\favicon-96x96.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

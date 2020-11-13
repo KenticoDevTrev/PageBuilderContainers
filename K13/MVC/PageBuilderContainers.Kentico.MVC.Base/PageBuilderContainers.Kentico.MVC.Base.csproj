@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>13.0.1</Version>
+    <Authors>Trevor Fayas</Authors>
+    <Company>Heartland Business Systems</Company>
+    <Product>PageBuilderContainers</Product>
+    <Description>Shared base library for the PageBuilderContainers.MVC and PageBuilderContainers.MVC.Core</Description>
+    <Copyright />
+    <PackageIcon>favicon-96x96.png</PackageIcon>
+    <RepositoryUrl>https://github.com/KenticoDevTrev/PageBuilderContainers</RepositoryUrl>
+    <PackageTags>Kentico, Xperience, PageBuilderContainers</PackageTags>
+    <PackageReleaseNotes>Fixed where Style was rendering on Before and After instead of just Before</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/KenticoDevTrev/PageBuilderContainers</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PageBuilderContainers.Kentico.Base" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\tfayas\Desktop\favicon-96x96.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
