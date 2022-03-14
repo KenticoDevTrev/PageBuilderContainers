@@ -30,26 +30,28 @@ namespace PageBuilderContainers
 
         private void BuildNuSpecManifest_After(object sender, BuildNuSpecManifestEventArgs e)
         {
-            // Change the name
-            e.Manifest.Metadata.Title = "Kentico Page Builder Containers";
-            e.Manifest.Metadata.SetProjectUrl("https://github.com/KenticoDevTrev/PageBuilderContainers");
-            e.Manifest.Metadata.SetIconUrl("https://www.hbs.net/HBS/media/Favicon/favicon-96x96.png");
-            e.Manifest.Metadata.Tags = "Kentico MVC Page Builder Containers";
-            e.Manifest.Metadata.Id = "PageBuilderContainers.Kentico";
-            e.Manifest.Metadata.ReleaseNotes = "Release for Kentico Xperience 13";
-            // Add nuget dependencies
+            if (e.ResourceName.Equals("PageBuilderContainers", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Change the name
+                e.Manifest.Metadata.Title = "Kentico Page Builder Containers";
+                e.Manifest.Metadata.SetProjectUrl("https://github.com/KenticoDevTrev/PageBuilderContainers");
+                e.Manifest.Metadata.SetIconUrl("https://www.hbs.net/HBS/media/Favicon/favicon-96x96.png");
+                e.Manifest.Metadata.Tags = "Kentico MVC Page Builder Containers";
+                e.Manifest.Metadata.Id = "PageBuilderContainers.Kentico";
+                e.Manifest.Metadata.ReleaseNotes = "Fixed admin NuSpect Manifest Overwrite so it would only adjust packages for this PageBuilderContainer, was affecting any other modules.";
+                // Add nuget dependencies
 
-            // Add dependencies
-            List<PackageDependency> NetStandardDependencies = new List<PackageDependency>()
+                // Add dependencies
+                List<PackageDependency> NetStandardDependencies = new List<PackageDependency>()
                 {
                     new PackageDependency("Kentico.Xperience.Libraries", new VersionRange(new NuGetVersion("13.0.0")), new string[] { }, new string[] {"Build","Analyzers"}),
                     new PackageDependency("PageBuilderContainers.Kentico.Base", new VersionRange(new NuGetVersion("13.0.1")), new string[] { }, new string[] {"Build","Analyzers"})
                 };
-            PackageDependencyGroup PackageGroup = new PackageDependencyGroup(new NuGet.Frameworks.NuGetFramework(".NETStandard2.0"), NetStandardDependencies);
-            e.Manifest.Metadata.DependencyGroups = new PackageDependencyGroup[] { PackageGroup };
-            // Add in Designer.cs and .cs files since really hard to include these in class library due to depenencies
-            string BaseDir = HttpContext.Current.Server.MapPath("~").Trim('\\');
-            e.Manifest.Files.AddRange(new ManifestFile[]{
+                PackageDependencyGroup PackageGroup = new PackageDependencyGroup(new NuGet.Frameworks.NuGetFramework(".NETStandard2.0"), NetStandardDependencies);
+                e.Manifest.Metadata.DependencyGroups = new PackageDependencyGroup[] { PackageGroup };
+                // Add in Designer.cs and .cs files since really hard to include these in class library due to depenencies
+                string BaseDir = HttpContext.Current.Server.MapPath("~").Trim('\\');
+                e.Manifest.Files.AddRange(new ManifestFile[]{
                 new ManifestFile()
                 {
                     Source=BaseDir+"\\CMSModules\\PageBuilderContainers\\Controls\\PageBuilderContainers\\General.ascx.cs",
@@ -91,6 +93,7 @@ namespace PageBuilderContainers
                     Target="\\Content\\CMSModules\\PageBuilderContainers\\UI\\PageBuilderContainers\\Container_New.aspx.designer.cs",
                 }
             });
+            }
         }
     }
 }
